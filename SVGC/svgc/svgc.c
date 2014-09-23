@@ -517,6 +517,8 @@ struct Token* exeTokenOperationsWithOperators(struct Token **firstTokens, struct
 
                         struct Token *prevToken = token->previous;
 
+                        int isVariable = 0;
+
                         if (token->operationId == '/')
                         {
                             newTotal = valueInToken(prevToken) / valueInToken(nextResultToken);
@@ -536,6 +538,7 @@ struct Token* exeTokenOperationsWithOperators(struct Token **firstTokens, struct
                         else if (token->operationId == '=')
                         {
                             addVariableWithName(prevToken->value, valueInToken(nextResultToken));
+                            isVariable = 1;
                         }
 
                         if (token->operationId != '=')
@@ -567,6 +570,23 @@ struct Token* exeTokenOperationsWithOperators(struct Token **firstTokens, struct
                         freeToken(nextResultToken);
 
                         token = prevToken;
+
+                        if (isVariable)
+                        {
+                            freeToken(token);
+
+                            if (firstTokens)
+                            {
+                                *firstTokens = NULL;
+                            }
+
+                            if (lastTokens)
+                            {
+                                *lastTokens = NULL;
+                            }
+
+                            return NULL;
+                        }
                     }
                 }
 
@@ -697,12 +717,15 @@ void exeoperation(char **output, const char *source)
 
     struct Token *tokenWithResult = exeTokenOperations(&tokens, NULL);
 
-    double value = valueInToken(tokenWithResult);
-    dtos(output, value);
-
     if (tokenWithResult)
     {
-        freeTokenArray(tokenWithResult);
+        double value = valueInToken(tokenWithResult);
+        dtos(output, value);
+
+        if (tokenWithResult)
+        {
+            freeTokenArray(tokenWithResult);
+        }
     }
 
 freeOperation:
