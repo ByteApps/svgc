@@ -785,6 +785,9 @@ void svgcstring(char **output, const char *source)
 
     //Execute regular expression
 
+    //regexec stops on first match, doing a while to simulate Pearl's /g option
+    //Reference: http://stackoverflow.com/questions/16417454/why-regexec-in-posix-c-always-return-the-first-match-how-can-it-return-all-mat
+
     while (!(reti = regexec(&regex, source, nmatch, matchPtr, 0)))
     {
         for (imatch = 0; imatch < nmatch; imatch++)
