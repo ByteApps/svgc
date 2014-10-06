@@ -283,7 +283,7 @@ void svgcinit()
 
     int reti;
 
-    reti = regcomp(&regex, LEFT_ID ".*" RIGHT_ID, REG_EXTENDED);
+    reti = regcomp(&regex, LEFT_ID "[^<>]*" RIGHT_ID , REG_EXTENDED);
 
 #ifdef DEBUG
 
@@ -755,6 +755,7 @@ void svgcstring(char **output, const char *source)
     char *operation;
     char *carptr;
     char *operationresult;
+    regmatch_t last_matchptr = {-1, -1};
 
 #ifdef DEBUG
     char regexMsg[100];
@@ -767,9 +768,24 @@ void svgcstring(char **output, const char *source)
 
     *output = calloc(1, strlen(source));
 
+    //first check for no matches
+
+    if ((reti = regexec(&regex, source, nmatch, matchPtr, 0)) != 0)
+    {
+        //no match, copy entire row to the new file.
+
+#ifdef DEBUG
+        regerror(reti, &regex, regexMsg, sizeof(regexMsg));
+        printf("%s\n", regexMsg);
+#endif
+        *output = strdup(source);
+
+        return;
+    }
+
     //Execute regular expression
 
-    if (!(reti = regexec(&regex, source, nmatch, matchPtr, 0)))
+    while (!(reti = regexec(&regex, source, nmatch, matchPtr, 0)))
     {
         for (imatch = 0; imatch < nmatch; imatch++)
         {
@@ -781,6 +797,8 @@ void svgcstring(char **output, const char *source)
 
                 break;
             }
+
+            last_matchptr = matchptr;
 
             //add everything before the operation
 
@@ -838,22 +856,16 @@ void svgcstring(char **output, const char *source)
                 }
             }
 
-            //add everything after the operation
-
-            strcat(*output, source + matchptr.rm_eo);
-
             free(operations);
+
+            source += last_matchptr.rm_eo;
         }
     }
-    else
-    {
-        //no match, copy entire row to the new file.
 
-#ifdef DEBUG
-        regerror(reti, &regex, regexMsg, sizeof(regexMsg));
-        printf("%s\n", regexMsg);
-#endif
-        *output = strdup(source);
-    }
+    //add everything after the operation
+
+    strcat(*output, source);
+
+
 }
 
