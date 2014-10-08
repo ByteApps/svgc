@@ -640,7 +640,7 @@ void exeoperation(char **output, const char *source)
         return;
     }
 
-    token = calloc(1, strlen(operation));
+    token = calloc(1, strlen(operation) + 1);
 
 #ifdef DEBUG
     printf("exeoperation: %s\n", operation);
