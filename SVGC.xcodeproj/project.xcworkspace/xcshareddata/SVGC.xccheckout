@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>02EED600-4AF7-4AF0-B24B-EA66DD80B0B6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SVGC</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EF81CE5E-2861-48C8-A964-3A0106BE515E</key>
+		<string>ssh://github.com/ByteApps/svgc.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SVGC.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EF81CE5E-2861-48C8-A964-3A0106BE515E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/ByteApps/svgc.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EF81CE5E-2861-48C8-A964-3A0106BE515E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EF81CE5E-2861-48C8-A964-3A0106BE515E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SVGC</string>
+		</dict>
+	</array>
+</dict>
+</plist>

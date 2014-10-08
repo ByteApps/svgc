@@ -59,7 +59,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/salvador/Dropbox/ByteApps/logo.html"
+            argument = "/Users/salvador/Dropbox/ByteApps/Logo/logo.html"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

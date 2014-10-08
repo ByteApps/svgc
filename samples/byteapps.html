@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<svg height="600" width="600">
+		<!-- rect height="600" width="600" fill="lime" /-->
+		<g fill="none" stroke="black" stroke-width="8">
+			<path d="M4 42.5 l0 -30 l30 0 l0 30 l-30 0 l0 10 l50 0 l0 30 l-50 0 l0 -30" /> <!-- B, starts at the bottom left of the top square -->
+			<path d="M44 8.5 l0 34 l20 0 l0 40 l10 0 l0 -40 l20 0 l0 -34" /> <!-- Y -->
+			<path d="M0 2.5 l104 0 l0 80 l10 0 l0 -80 l50 0" /> <!-- T left -->
+			<path d="M164 12.5 l-40 0 l0 30 l36 0 l0 10 l-36 0 l0 30 l40 0" /> <!-- E left -->
+		</g>
+		<g fill="none" stroke="black" stroke-width="4">
+			<!--- a_start_x		= 168 --->
+			<!--- a_height		= 85/2 --->
+			<!--- a_width 		= 20 --->
+			<!--- a_offset_y	= 5 --->
+			
+			<path d="M<!---a_start_x---> 87 l0 -<!---a_height---> l<!---a_width---> 0 l0 <!---a_height--->" /> <!-- A -->
+			<path d="M<!---a_start_x---> <!---a_height+(a_height/2)+1---> l<!---a_width---> 0" /> <!-- A the line in the middle-->
+			
+			<!--- p1_start_x = a_start_x + a_width + 6 --->
+			<!--- p2_start_x = p1_start_x + a_width + 6.5 --->
+			<path d="M<!---p1_start_x---> 87 l0 -<!---a_height---> l<!---a_width---> 0 l0 <!---(a_height/2)---> l-<!---a_width---> 0" /> <!-- P -->
+			<path d="M<!---p1_start_x+a_width+6---> 87 l0 -<!---a_height---> l<!---a_width---> 0 l0 <!---(a_height/2)---> l-<!---a_width---> 0" /> <!-- P -->
+			
+			<!--- s_start_x = p2_start_x + a_width + 6.5 --->
+			<path d="M<!---s_start_x+a_width-1---> <!---2+a_height---> l-<!---a_width---> 0 l0 <!--- a_height/2---> l<!--- a_width---> 0 l0 <!--- (a_height/2) + 4---> l-347 0" /><!-- S -->
+		<g>	
+	</svg>
+
+</body>
+</html>
