@@ -674,6 +674,11 @@ void exeoperation(char **output, const char *source)
         }
         else
         {
+            if (currentchar == ' ' || currentchar == '\t')
+            {
+                continue;
+            }
+
             token[tokenlen++] = currentchar;
         }
     }
